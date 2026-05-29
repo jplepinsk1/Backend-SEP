@@ -46,7 +46,7 @@ def get_user_chat():
         print(f"Criando novo chat Gemini para session_id: {session_id}")
         try:
             chat_session = client.chats.create(
-                model="gemini-3.5-flash", # Certifique-se que este modelo suporta chat contínuo
+                model="gemini-2.5-flash", # Certifique-se que este modelo suporta chat contínuo
                 config=types.GenerateContentConfig(system_instruction=instrucoes)
             )
             active_chats[session_id] = chat_session
