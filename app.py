@@ -1,4 +1,4 @@
-from flask import Flask, request, session
+from flask import Flask, request, session, jsonify
 from flask_socketio import SocketIO, emit
 from google import genai
 from google.genai import types
@@ -68,6 +68,13 @@ def get_user_chat():
 
 
     return active_chats[session_id]
+
+@app.route('/')
+def root():
+    return jsonify({
+        "api-websocket": "chatbot",
+        "status": "ok"
+    })
 
 @socketio.on('connect')
 def handle_connect():
