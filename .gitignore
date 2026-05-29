@@ -1,0 +1,4 @@
+.env
+venv
+.vscode
+requirements_v1.txt
