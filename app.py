@@ -1,5 +1,11 @@
-from gevent import monkey
-monkey.patch_all()
+import sys
+
+if sys.platform != "win32":
+    try:
+        from gevent import monkey
+        monkey.patch_all()
+    except ImportError:
+        print("Gevent não instalado!")
 
 from flask import Flask, request, session, jsonify
 from flask_socketio import SocketIO, emit
